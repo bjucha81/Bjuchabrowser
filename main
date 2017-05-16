@@ -1,0 +1,13 @@
+import ui
+ 
+w, h = ui.get_screen_size()
+bw = 100
+bh = 50
+ 
+view = ui.View(name = 'BjuchaBrowser', bg_color = 'purple', frame = (0,0,w,h))
+ 
+ 
+Tfield = ui.TextField(frame = (10,10,650,50))
+Tfield.placeholder = 'Enter URL: '
+view.add_subview(Tfield)
+view.present('screen')
