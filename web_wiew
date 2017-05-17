@@ -1,0 +1,33 @@
+mport ui
+
+w, h = ui.get_screen_size()
+bw = 100
+bh = 50
+
+view = ui.View(name = 'BjuchaBrowser', frame = (0,0,w,h))
+view.bg_color = .5, .19, .35
+
+def Tfield_web(sender):
+	web_view = sender.superview['webview']
+	url = sender.text
+	web_view.load_load(url)
+	if not not (url.startswith('http://') or url.startswith('https://')):
+        	url = 'http://' + url
+
+Tfield = ui.TextField(frame = (10,10,650,50))
+Tfield.placeholder = 'Enter URL: '
+Tfield.keyboard_type = ui.KEYBOARD_URL
+action = Tfield_web
+
+Breturn = ui.Button(title = 'Undo', bg_color = 'silver')
+Breturn.frame = (660,10,50,50)
+Breturn.tint_color = 'black'
+
+web_view = ui.WebView(name = 'Webben', frame =(10, 40, 400, 360). flex = 'WH')
+web_view.bg_color = .5, .19, .35
+
+
+view.add_subview(Breturn)
+view.add_subview(Tfield)
+view.add_subview(web_view)
+view.present()
