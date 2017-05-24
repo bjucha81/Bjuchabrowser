@@ -2,7 +2,7 @@ import ui
 import urllib.parse
 
 
-def textfield_url(test): # no need to be called sender
+def textfield_url(test): 
 		
 		web_view = test.superview['webview'] # superview = in front of other
 		url = test.text
