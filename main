@@ -3,3 +3,8 @@ import ui
 def homeButton (sender): # Home button
 	web_view.load_url('http://www.google.se')
 #url = 'www.google.se'
+
+
+B1 = ui.Button(title = 'Home' ,frame = (4,5,20,20))
+B1.action = homeButton
+B1.tint_color = 'black'
