@@ -12,3 +12,25 @@ def searchfield_url(test2):
 	url = test2.text
 	search_term = urllib.parse.quote(test2.text, '')
 web_view.load_url('https://www.google.com/search?q=' + search_term)
+
+
+text_field = ui.TextField(
+		frame=(99, 0, 50, 40),
+		flex='W',
+		keyboard_type=ui.KEYBOARD_URL,
+		autocorrection_type=False,
+		autocapitalization_type=ui.AUTOCAPITALIZE_NONE,
+		action=textfield_url,
+		
+		placeholder='URL:'
+		#text_field
+)	
+seach_field = ui.TextField(
+			frame=(520, 0, 0, 40),
+			flex='w',
+			keyboard_type=ui.KEYBOARD_WEB_SEARCH,
+			autocorrection_type=False,
+			autocapitalization_type=ui.AUTOCAPITALIZE_NONE,
+			action=searchfield_url,
+			placeholder = 'Search:'
+)
