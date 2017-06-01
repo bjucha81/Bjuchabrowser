@@ -18,17 +18,33 @@ def searchfield_url(test2):
 	web_view.load_url('https://www.google.com/search?q=' + search_term)
 
 
-def homeButton (sender): # Home button
+def homeButton (sender): # Working!
 	web_view.load_url('http://www.google.se')
 	#url = 'www.google.se'
-	
-	#url = www.google.se		
+
+def Back(sender2): # Working!
+	web_view.go_back()	
+		
+			
+def buttonTapped(sender3): # Working!
+	n_view = ui.View()
+	n_view.name = 'Option'
+	n_view.background_color = 'white'
+	n_view.frame=(0,40,400,360)
+	sender3.superview.navigation_view.push_view(n_view)
+	b4 = ui.Button(title = 'Home', frame = (40,40,70,70))
+	b4.tint_color = 'black'
+	n_view.add_subview(b4)
+	b5 = ui.Button(frame = (0,40,100,70))
+	b5.title = 'bookmarks'
+	b5.tint_color = 'black'
+	n_view.add_subview(b5)
 
 main_view = ui.View(
 	frame=(0, 0, 400, 400), bg_color='white', name='Grizzly Browser'
 )
 text_field = ui.TextField(
-		frame=(99, 0, 50, 40),
+		frame=(129, 0, 50, 40),
 		flex='W',
 		keyboard_type=ui.KEYBOARD_URL,
 		autocorrection_type=False,
@@ -36,7 +52,7 @@ text_field = ui.TextField(
 		action=textfield_url,
 		
 		placeholder='URL:'
-		#text_field
+		
 )	
 seach_field = ui.TextField(
 			frame=(520, 0, 0, 40),
@@ -47,22 +63,40 @@ seach_field = ui.TextField(
 			action=searchfield_url,
 			placeholder = 'Search:'
 )
-#text_field.bg_color = 'purple'
+
 
 B1 = ui.Button(title = 'Home' ,frame = (4,5,20,20))
 B1.action = homeButton
 B1.tint_color = 'black'
-#main_view.background_color = .62, .43, .43
+
+
+B2 = ui.Button(title = 'Back' ,frame = (55,5,20,20))
+B2.action = Back
+B2.tint_color = 'black'
+
+
+
+
+
+b3 = ui.Button(title = 'opt')
+b3.action = buttonTapped
+b3.frame = (80,0,50,50)
+main_view.add_subview(b3)
+
+#
 main_view.add_subview(text_field)
 web_view = ui.WebView(name='webview', frame=(0, 40, 400, 360), flex='WH')
-#web_view.background_color = 'purple'
 
-#Add back button
 
-#web_view.load_html('<body style="background-color: indigo;"/>')
+
+
 main_view.add_subview(web_view)
 main_view.add_subview(B1)
+main_view.add_subview(B2)
 main_view.add_subview(seach_field)
-main_view.present()
-#ToDo add search(fixed), back, forward, home(fixed) button
+#main_view.present()
+
 web_view.load_url('http://www.feber.se') #StartPage
+
+nav_view = ui.NavigationView(main_view)
+nav_view.present()
